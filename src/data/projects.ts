@@ -10,6 +10,7 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com',
     liveUrl: 'https://example.com',
     featured: true,
+    category: 'fullstack',
   },
   {
     id: 'project-2',
@@ -19,6 +20,7 @@ export const projects: Project[] = [
     techStack: ['Node.js', 'TypeScript', 'Commander.js'],
     githubUrl: 'https://github.com',
     featured: true,
+    category: 'cloud',
   },
   {
     id: 'project-3',
@@ -28,6 +30,7 @@ export const projects: Project[] = [
     techStack: ['Node.js', 'Express', 'Redis', 'TypeScript'],
     githubUrl: 'https://github.com',
     featured: true,
+    category: 'cloud',
   },
   {
     id: 'project-4',
@@ -38,5 +41,6 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com',
     liveUrl: 'https://example.com',
     featured: false,
+    category: 'design',
   },
 ]

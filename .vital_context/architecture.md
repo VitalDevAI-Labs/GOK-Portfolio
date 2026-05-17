@@ -111,6 +111,10 @@ src/
 | 4 | Fonts | Google Fonts via next/font | Self-hosted | Zero config, cached by CDN |
 | 5 | Animations | CSS transitions / Tailwind | Framer Motion | No extra dep for Phase 1; add if needed |
 | 6 | Contact | mailto link | Form with backend | No server needed; simple for Phase 1 |
+| 7 | V2 accent | Violet `#a855f7` | Cyan `#22d3ee` | New UX design spec on V-2-New-UX branch |
+| 8 | V2 fonts | Merriweather (headings) + Inter (body) + JetBrains Mono | Inter-only | Serif headings per design spec; body stays sans-serif |
+| 9 | V2 styling | CSS variables (tokens) + Tailwind v4 (layout in new components) | Full rewrite | Existing inline styles auto-inherit token changes; no component rewrites needed |
+| 10 | V2 EdgeFrame | Fixed decorative 1px lines via CSS classes in globals.css | Inline only | Glow toggled via media query — cleaner than JS resize listeners |
 
 ---
 

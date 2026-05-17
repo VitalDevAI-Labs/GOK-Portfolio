@@ -1,14 +1,44 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0a0a0a;
+  --bg: #0d0d0d;
   --bg-surface: #111111;
-  --bg-border: #1f1f1f;
+  --bg-nav: rgba(17,17,17,0.48);
+  --bg-border: #222028;
+  --bg-code: #0f0f11;
   --text-primary: #e5e5e5;
-  --text-muted: #737373;
-  --text-accent: #22d3ee;
+  --text-muted: #9b9b9b;
+  --text-accent: #a855f7;
   --badge-bg: #1a1a1a;
   --badge-text: #a3a3a3;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 999px;
+
+  --cat-genai-bg: #1a0f26;
+  --cat-genai-text: #a855f7;
+  --cat-genai-border: #35163f;
+  --cat-fullstack-bg: #0f1720;
+  --cat-fullstack-text: #7c3aed;
+  --cat-fullstack-border: #221029;
+  --cat-cloud-bg: #08121a;
+  --cat-cloud-text: #60a5fa;
+  --cat-cloud-border: #072033;
+  --cat-design-bg: #141018;
+  --cat-design-text: #f472b6;
+  --cat-design-border: #2a1624;
+}
+
+@theme {
+  --color-bg: #0d0d0d;
+  --color-surface: #111111;
+  --color-accent: #a855f7;
+  --color-primary: #e5e5e5;
+  --color-muted: #9b9b9b;
+  --color-border: #222028;
 }
 
 html {
@@ -36,4 +66,46 @@ a {
 ::selection {
   background-color: var(--text-accent);
   color: var(--bg);
+}
+
+/* EdgeFrame decorative lines */
+.edge-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: rgba(168,85,247,0.20);
+}
+
+.edge-line--glow {
+  box-shadow: 0 0 18px rgba(168,85,247,0.16);
+}
+
+@media (max-width: 1023px) {
+  .edge-line--glow {
+    box-shadow: none;
+  }
+}
+
+/* Hero typing cursor */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background-color: var(--text-accent);
+  margin-left: 3px;
+  vertical-align: middle;
+  animation: cursor-blink 0.9s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing-cursor {
+    animation: none;
+    opacity: 1;
+  }
 }
