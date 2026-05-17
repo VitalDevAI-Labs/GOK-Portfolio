@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p .claude/agents)"
+    ],
+    "additionalDirectories": [
+      "c:\\Home\\VitalDev_Projects_Base\\GOK-Portfolio\\.claude"
+    ]
+  }
+}

@@ -1,8 +1,23 @@
+import Nav from '@/components/Nav'
+import Hero from '@/components/Hero'
+import Projects from '@/components/Projects'
+import About from '@/components/About'
+import Skills from '@/components/Skills'
+import Contact from '@/components/Contact'
+import Footer from '@/components/Footer'
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-8">
-      <h1 className="text-4xl font-bold">GOK Portfolio</h1>
-      <p className="mt-4 text-lg text-gray-500">Coming soon — building something great.</p>
-    </main>
-  );
+    <>
+      <Nav />
+      <main style={{ paddingTop: '60px' }}>
+        <Hero />
+        <Projects />
+        <About />
+        <Skills />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  )
 }
