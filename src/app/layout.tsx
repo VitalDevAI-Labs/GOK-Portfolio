@@ -1,10 +1,18 @@
 import type { Metadata } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Inter, Merriweather, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  display: 'swap',
+})
+
+const merriweather = Merriweather({
+  subsets: ['latin'],
+  weight: ['400', '700', '900'],
+  style: ['normal', 'italic'],
+  variable: '--font-serif',
   display: 'swap',
 })
 
@@ -23,7 +31,7 @@ export const metadata: Metadata = {
     template: '%s | GOK',
   },
   description:
-    'Full-Stack Engineer building fast, intuitive products. Open to new opportunities.',
+    'Full-Stack Engineer crafting fast, intuitive digital experiences. Open to new opportunities.',
   keywords: ['Full-Stack Engineer', 'React', 'Next.js', 'TypeScript', 'Node.js', 'Portfolio'],
   authors: [{ name: 'GOK' }],
   creator: 'GOK',
@@ -34,13 +42,13 @@ export const metadata: Metadata = {
     siteName: 'GOK Portfolio',
     title: 'GOK | Full-Stack Engineer',
     description:
-      'Full-Stack Engineer building fast, intuitive products. Open to new opportunities.',
+      'Full-Stack Engineer crafting fast, intuitive digital experiences. Open to new opportunities.',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'GOK | Full-Stack Engineer',
     description:
-      'Full-Stack Engineer building fast, intuitive products. Open to new opportunities.',
+      'Full-Stack Engineer crafting fast, intuitive digital experiences. Open to new opportunities.',
   },
   robots: {
     index: true,
@@ -54,7 +62,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${merriweather.variable} ${jetbrainsMono.variable}`}>
       <body style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>
         {children}
       </body>

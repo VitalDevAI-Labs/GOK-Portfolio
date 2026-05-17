@@ -1,3 +1,4 @@
+import EdgeFrame from '@/components/EdgeFrame'
 import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
 import Projects from '@/components/Projects'
@@ -9,6 +10,7 @@ import Footer from '@/components/Footer'
 export default function Home() {
   return (
     <>
+      <EdgeFrame />
       <Nav />
       <main style={{ paddingTop: '60px' }}>
         <Hero />

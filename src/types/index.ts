@@ -6,6 +6,7 @@ export interface Project {
   githubUrl: string
   liveUrl?: string
   featured: boolean
+  category?: 'genai' | 'fullstack' | 'cloud' | 'design'
 }
 
 export interface SkillGroup {
@@ -16,6 +17,9 @@ export interface SkillGroup {
 export interface Bio {
   name: string
   role: string
+  headline: string
+  headlineAccentWord: string
+  typingWords: string[]
   tagline: string
   bio: string
   email: string

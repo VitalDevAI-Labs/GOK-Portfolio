@@ -14,10 +14,10 @@
 
 ## Current Stage
 
-- **Stage:** Stage 3 — Launch (Phase 4)
-- **Objective:** Deploy to Vercel, verify live site, confirm OG tags and Lighthouse scores.
-- **Status:** Not started
-- **Exit Criteria:** Site live on Vercel URL. Lighthouse Performance + Accessibility ≥90.
+- **Stage:** Phase 4 — Launch (merge V-2-New-UX → main, Vercel deploy)
+- **Objective:** V2 redesign complete. Merge branch, replace placeholder content with real data, deploy to Vercel.
+- **Status:** V2 all sections done — ready to merge and deploy.
+- **Exit Criteria:** Live on Vercel with real content, custom domain optional.
 
 ## Phases
 
@@ -27,7 +27,13 @@
 | 1 | Foundation UX | Dark layout, fonts, nav, Hero section | done |
 | 2 | Core Content | Projects grid, About, Skills sections | done |
 | 3 | Polish & Conversion | Contact, Resume download, animations, SEO/OG | done |
-| 4 | Launch | Vercel deploy, custom domain | active |
+| 4 | Launch | Vercel deploy, custom domain | pending |
+| V2-1 | V2 Foundation | Global tokens, EdgeFrame, Nav redesign | done |
+| V2-2 | V2 Hero | Hero section redesign | done |
+| V2-3 | V2 Projects | Projects section redesign | done |
+| V2-4 | V2 About | About section redesign | done |
+| V2-5 | V2 Skills | Skills section redesign | done |
+| V2-6 | V2 Contact + Footer | Contact + Footer redesign | done |
 
 ## Active Tasks
 
@@ -37,6 +43,13 @@
 | `task-20260516-002` | Phase 2 Core Content — Projects, About, Skills | V1-REQ-005 to V1-REQ-007 | done | dev |
 | `task-20260517-003` | Phase 3 Polish — Contact, Resume, SEO | V2-REQ-001 to V2-REQ-004 | done | dev |
 | `task-20260517-004` | Phase 4 Launch — Vercel deploy | V3-REQ-001 to V3-REQ-003 | planned | dev |
+| `task-20260517-005` | V2 Foundation — globals, EdgeFrame, Nav | V2-UX-001 | done | dev |
+| `task-20260517-006` | V2 Hero section redesign | V2-UX-002 | done | dev |
+| `task-20260517-007` | V2 Projects section redesign | V2-UX-003 | done | dev |
+| `task-20260517-008` | V2 About section redesign | V2-UX-004 | done | dev |
+| `task-20260517-009` | V2 Skills section redesign | V2-UX-005 | done | dev |
+| `task-20260517-010` | V2 Contact + Footer redesign | V2-UX-006 | done | dev |
+| `task-20260517-011` | Phase 4 — merge V2 branch + Vercel deploy | Phase-4 | planned | dev |
 
 ## Key Decisions
 
@@ -48,6 +61,10 @@
 | 4 | Design theme | Dark / terminal aesthetic | Matches dev audience expectations |
 | 5 | Hosting | Vercel (planned) | Free tier, Next.js-native deploy |
 | 6 | Content approach | Placeholder-first, real content added iteratively | Ship fast, refine on the go |
+| 7 | V2 accent color | Violet `#a855f7` (changed from cyan `#22d3ee`) | Matches new UX design spec |
+| 8 | V2 heading font | Merriweather serif (alongside Inter body, JetBrains Mono) | Design spec — serif headings |
+| 9 | V2 styling approach | CSS variables for tokens + hybrid Tailwind for new components | Evolution not rewrite — existing inline styles auto-inherit token changes |
+| 10 | V2 section approach | Plan → build → verify one section at a time | Prevents design drift across sections |
 
 Full decision log with alternatives in [architecture.md](architecture.md).
 

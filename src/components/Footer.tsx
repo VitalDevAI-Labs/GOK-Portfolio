@@ -1,3 +1,5 @@
+'use client'
+
 import { bio } from '@/data/bio'
 
 export default function Footer() {
@@ -6,6 +8,7 @@ export default function Footer() {
       style={{
         borderTop: '1px solid var(--bg-border)',
         padding: '32px 24px',
+        backgroundColor: 'var(--bg)',
       }}
     >
       <div
@@ -19,17 +22,31 @@ export default function Footer() {
           gap: '16px',
         }}
       >
-        <span
-          style={{
-            fontFamily: 'var(--font-mono), monospace',
-            fontSize: '12px',
-            color: 'var(--text-muted)',
-          }}
-        >
-          © {new Date().getFullYear()} {bio.name}
-        </span>
+        {/* Left — name + tagline */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          <span
+            style={{
+              fontFamily: 'var(--font-mono), monospace',
+              fontSize: '13px',
+              fontWeight: 700,
+              color: 'var(--text-accent)',
+            }}
+          >
+            {bio.name}
+          </span>
+          <span
+            style={{
+              fontFamily: 'var(--font-mono), monospace',
+              fontSize: '11px',
+              color: 'var(--text-muted)',
+            }}
+          >
+            © {new Date().getFullYear()} — built with Next.js
+          </span>
+        </div>
 
-        <div style={{ display: 'flex', gap: '24px' }}>
+        {/* Right — social links */}
+        <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
           {bio.github && (
             <a
               href={bio.github}
@@ -40,9 +57,11 @@ export default function Footer() {
                 fontSize: '12px',
                 color: 'var(--text-muted)',
                 textDecoration: 'none',
-                letterSpacing: '0.05em',
+                letterSpacing: '0.04em',
                 transition: 'color 0.2s',
               }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--text-accent)')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
             >
               GitHub
             </a>
@@ -57,12 +76,30 @@ export default function Footer() {
                 fontSize: '12px',
                 color: 'var(--text-muted)',
                 textDecoration: 'none',
-                letterSpacing: '0.05em',
+                letterSpacing: '0.04em',
+                transition: 'color 0.2s',
               }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--text-accent)')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
             >
               LinkedIn
             </a>
           )}
+          <a
+            href={`mailto:${bio.email}`}
+            style={{
+              fontFamily: 'var(--font-mono), monospace',
+              fontSize: '12px',
+              color: 'var(--text-muted)',
+              textDecoration: 'none',
+              letterSpacing: '0.04em',
+              transition: 'color 0.2s',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--text-accent)')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
+          >
+            Email
+          </a>
         </div>
       </div>
     </footer>
