@@ -109,3 +109,61 @@ a {
     opacity: 1;
   }
 }
+
+/* About section — responsive grid */
+.about-grid {
+  display: grid;
+  grid-template-columns: 2fr 360px;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-avatar-group {
+    order: -1;
+    margin-bottom: 32px;
+  }
+}
+
+/* Skills section — responsive grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.skills-card-fullwidth {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 900px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Experience section — responsive timeline */
+@media (max-width: 767px) {
+  .timeline-entry {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .timeline-entry > div:first-child,
+  .timeline-entry > div:last-child {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    width: 100%;
+  }
+  .timeline-card {
+    width: 100% !important;
+  }
+}

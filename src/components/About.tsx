@@ -2,6 +2,45 @@
 
 import { bio } from '@/data/bio'
 
+function StatBadge({ value, label }: { value: string; label: string }) {
+  return (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '2px',
+        padding: '12px 16px',
+        borderRadius: 'var(--radius-md)',
+        backgroundColor: 'rgba(255,255,255,0.02)',
+        border: '1px solid rgba(255,255,255,0.05)',
+      }}
+    >
+      <span
+        style={{
+          fontFamily: 'var(--font-mono), monospace',
+          fontSize: '22px',
+          fontWeight: 700,
+          color: 'var(--text-accent)',
+          lineHeight: 1,
+        }}
+      >
+        {value}
+      </span>
+      <span
+        style={{
+          fontFamily: 'var(--font-mono), monospace',
+          fontSize: '10px',
+          color: 'var(--text-muted)',
+          letterSpacing: '0.07em',
+          textTransform: 'uppercase',
+        }}
+      >
+        {label}
+      </span>
+    </div>
+  )
+}
+
 export default function About() {
   return (
     <section
@@ -13,193 +52,232 @@ export default function About() {
       }}
     >
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        {/* Section label + heading */}
+        {/* Section label */}
         <p
           style={{
             fontFamily: 'var(--font-mono), monospace',
             fontSize: '12px',
-            color: 'var(--text-muted)',
-            letterSpacing: '0.08em',
+            color: 'var(--text-accent)',
+            letterSpacing: '0.1em',
             marginBottom: '12px',
+            textAlign: 'center',
           }}
         >
-          {'// about-me'}
+          ✦ About Me
         </p>
-        <h2
-          style={{
-            fontFamily: 'var(--font-serif), Georgia, serif',
-            fontSize: '34px',
-            fontWeight: 800,
-            color: 'var(--text-primary)',
-            lineHeight: 1.15,
-            marginBottom: '48px',
-          }}
-        >
-          About Me
-        </h2>
 
-        {/* Two-column layout */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '48px',
-            alignItems: 'start',
-          }}
-        >
-          {/* Left — bio text + social links */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
-            <p
+        {/* Main grid: 2 columns (text left, avatar right) */}
+        <div className="about-grid">
+          {/* LEFT — text content */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <h2
               style={{
-                fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                fontSize: '16px',
-                color: 'var(--text-muted)',
-                lineHeight: 1.8,
+                fontFamily: 'var(--font-serif), Georgia, serif',
+                fontSize: '40px',
+                fontWeight: 700,
+                color: 'var(--text-primary)',
+                lineHeight: 1.15,
+                marginBottom: '12px',
               }}
             >
-              {bio.bio}
-            </p>
+              About Me
+            </h2>
 
-            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-              {bio.github && (
-                <a
-                  href={bio.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                    fontSize: '13px',
-                    fontWeight: 500,
-                    color: 'var(--text-primary)',
-                    textDecoration: 'none',
-                    padding: '9px 18px',
-                    borderRadius: 'var(--radius-md)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    transition: 'border-color 0.2s, box-shadow 0.2s',
-                    display: 'inline-block',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(168,85,247,0.30)'
-                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(168,85,247,0.10)'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'
-                    e.currentTarget.style.boxShadow = 'none'
-                  }}
-                >
-                  GitHub ↗
-                </a>
-              )}
-              {bio.linkedin && (
-                <a
-                  href={bio.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                    fontSize: '13px',
-                    fontWeight: 500,
-                    color: 'var(--text-primary)',
-                    textDecoration: 'none',
-                    padding: '9px 18px',
-                    borderRadius: 'var(--radius-md)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    transition: 'border-color 0.2s, box-shadow 0.2s',
-                    display: 'inline-block',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(168,85,247,0.30)'
-                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(168,85,247,0.10)'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'
-                    e.currentTarget.style.boxShadow = 'none'
-                  }}
-                >
-                  LinkedIn ↗
-                </a>
-              )}
-              <a
-                href={bio.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+            {/* Bio paragraphs */}
+            {bio.aboutParagraphs.map((paragraph, idx) => (
+              <p
+                key={idx}
                 style={{
-                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                  fontSize: '13px',
-                  fontWeight: 600,
-                  color: 'var(--bg)',
-                  backgroundColor: 'var(--text-accent)',
-                  textDecoration: 'none',
-                  padding: '9px 18px',
-                  borderRadius: 'var(--radius-md)',
-                  transition: 'box-shadow 0.2s, transform 0.15s',
-                  display: 'inline-block',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow = '0 8px 24px rgba(168,85,247,0.35)'
-                  e.currentTarget.style.transform = 'translateY(-1px)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow = 'none'
-                  e.currentTarget.style.transform = 'translateY(0)'
+                  fontFamily: 'var(--font-serif), Georgia, serif',
+                  fontSize: '16px',
+                  color: 'var(--text-muted)',
+                  lineHeight: 1.8,
+                  maxWidth: '680px',
+                  marginBottom: idx < bio.aboutParagraphs.length - 1 ? '0' : '0',
                 }}
               >
-                Resume ↓
-              </a>
+                {paragraph}
+              </p>
+            ))}
+
+            {/* Stats row */}
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                gap: '24px',
+                marginTop: '24px',
+                flexWrap: 'wrap',
+              }}
+            >
+              <StatBadge value="10+" label="YEARS EXPERIENCE" />
+              <StatBadge value="50+" label="PROJECTS SHIPPED" />
+              <StatBadge value={`${bio.aiModels}+`} label="AI MODELS" />
             </div>
           </div>
 
-          {/* Right — terminal whoami card */}
+          {/* RIGHT — avatar with rings and badges */}
           <div
+            className="about-avatar-group"
             style={{
-              backgroundColor: 'rgba(255,255,255,0.03)',
-              border: '1px solid rgba(255,255,255,0.06)',
-              borderRadius: 'var(--radius-md)',
-              padding: '24px',
+              position: 'relative',
+              width: '280px',
+              height: '280px',
+              margin: '0 auto',
+              flexShrink: 0,
             }}
           >
-            <p
+            {/* Outer decorative ring */}
+            <div
+              aria-hidden="true"
               style={{
-                fontFamily: 'var(--font-mono), monospace',
-                fontSize: '12px',
-                color: 'var(--text-accent)',
-                marginBottom: '20px',
-                letterSpacing: '0.05em',
+                position: 'absolute',
+                inset: '-15px',
+                borderRadius: '50%',
+                border: '6px solid rgba(168,85,247,0.08)',
+                pointerEvents: 'none',
+              }}
+            />
+
+            {/* Inner decorative ring */}
+            <div
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                inset: '-8px',
+                borderRadius: '50%',
+                border: '2px solid rgba(168,85,247,0.12)',
+                pointerEvents: 'none',
+              }}
+            />
+
+            {/* Avatar circle */}
+            <div
+              style={{
+                width: '280px',
+                height: '280px',
+                borderRadius: '50%',
+                backgroundColor: 'var(--bg-surface)',
+                border: '1px solid rgba(168,85,247,0.14)',
+                boxShadow: '0 16px 48px rgba(168,85,247,0.16)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                position: 'relative',
+                zIndex: 1,
+                transition: 'transform 0.3s ease',
+                cursor: 'pointer',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.02)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)'
               }}
             >
-              {'> whoami'}
-            </p>
-            <dl style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              {[
-                { label: 'name', value: bio.name },
-                { label: 'role', value: bio.role },
-                { label: 'email', value: bio.email },
-                { label: 'status', value: 'open to work' },
-              ].map(({ label, value }) => (
-                <div key={label} style={{ display: 'flex', gap: '16px', alignItems: 'baseline' }}>
-                  <dt
-                    style={{
-                      fontFamily: 'var(--font-mono), monospace',
-                      fontSize: '12px',
-                      color: 'var(--text-accent)',
-                      minWidth: '56px',
-                      flexShrink: 0,
-                    }}
-                  >
-                    {label}
-                  </dt>
-                  <dd
-                    style={{
-                      fontFamily: 'var(--font-mono), monospace',
-                      fontSize: '12px',
-                      color: label === 'status' ? '#4ade80' : 'var(--text-muted)',
-                    }}
-                  >
-                    {value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
+              <span
+                style={{
+                  fontFamily: 'var(--font-mono), monospace',
+                  fontSize: '56px',
+                  fontWeight: 700,
+                  color: 'var(--text-accent)',
+                  letterSpacing: '-0.05em',
+                }}
+              >
+                GOK
+              </span>
+            </div>
+
+            {/* Badge: Years Experience (top-left) */}
+            <div
+              style={{
+                position: 'absolute',
+                top: '-8px',
+                left: '-16px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '7px 12px',
+                borderRadius: 'var(--radius-md)',
+                backgroundColor: 'var(--bg-surface)',
+                border: '1px solid rgba(168,85,247,0.18)',
+                boxShadow: '0 4px 16px rgba(0,0,0,0.4)',
+                zIndex: 2,
+                whiteSpace: 'nowrap',
+              }}
+            >
+              <span style={{ fontSize: '14px', color: 'var(--text-accent)' }}>★</span>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-mono), monospace',
+                    fontSize: '11px',
+                    fontWeight: 700,
+                    color: 'var(--text-accent)',
+                    lineHeight: 1,
+                  }}
+                >
+                  5+
+                </span>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-mono), monospace',
+                    fontSize: '9px',
+                    color: 'var(--text-muted)',
+                    letterSpacing: '0.04em',
+                    lineHeight: 1,
+                  }}
+                >
+                  YEARS EXP
+                </span>
+              </div>
+            </div>
+
+            {/* Badge: AI Models (right-middle) */}
+            <div
+              style={{
+                position: 'absolute',
+                top: '50%',
+                right: '-24px',
+                transform: 'translateY(-50%)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '7px 12px',
+                borderRadius: 'var(--radius-md)',
+                backgroundColor: 'var(--bg-surface)',
+                border: '1px solid rgba(168,85,247,0.18)',
+                boxShadow: '0 4px 16px rgba(0,0,0,0.4)',
+                zIndex: 2,
+                whiteSpace: 'nowrap',
+              }}
+            >
+              <span style={{ fontSize: '14px', color: 'var(--text-accent)' }}>◈</span>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-mono), monospace',
+                    fontSize: '11px',
+                    fontWeight: 700,
+                    color: 'var(--text-accent)',
+                    lineHeight: 1,
+                  }}
+                >
+                  20+
+                </span>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-mono), monospace',
+                    fontSize: '9px',
+                    color: 'var(--text-muted)',
+                    letterSpacing: '0.04em',
+                    lineHeight: 1,
+                  }}
+                >
+                  AI MODELS
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

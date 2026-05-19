@@ -16,9 +16,9 @@ function renderHeadline(headline: string, accentWord: string) {
 }
 
 export default function Hero() {
-  const [displayWord, setDisplayWord] = useState(bio.typingWords[0])
-  const [charCount, setCharCount] = useState(bio.typingWords[0].length)
-  const wordIndexRef = useRef(0)
+  const [displayText, setDisplayText] = useState('')
+  const [wordIndex, setWordIndex] = useState(0)
+  const [isDeleting, setIsDeleting] = useState(false)
   const reducedMotion = useRef(false)
 
   useEffect(() => {
@@ -26,28 +26,38 @@ export default function Hero() {
       window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (reducedMotion.current) return
 
+    const currentWord = bio.typingWords[wordIndex]
     let timeout: ReturnType<typeof setTimeout>
 
-    const erase = () => {
-      setCharCount(c => {
-        if (c > 0) {
-          timeout = setTimeout(erase, 40)
-          return c - 1
-        }
-        const next = (wordIndexRef.current + 1) % bio.typingWords.length
-        wordIndexRef.current = next
-        setDisplayWord(bio.typingWords[next])
-        setCharCount(bio.typingWords[next].length)
-        timeout = setTimeout(erase, 2400)
-        return bio.typingWords[next].length
-      })
+    if (!isDeleting) {
+      // Typing phase - add one character
+      if (displayText.length < currentWord.length) {
+        timeout = setTimeout(() => {
+          setDisplayText(currentWord.slice(0, displayText.length + 1))
+        }, 80)
+      } else if (displayText.length === currentWord.length) {
+        // Word complete - pause before deleting
+        timeout = setTimeout(() => {
+          setIsDeleting(true)
+        }, 2000)
+      }
+    } else {
+      // Deleting phase - remove one character
+      if (displayText.length > 0) {
+        timeout = setTimeout(() => {
+          setDisplayText(displayText.slice(0, -1))
+        }, 50)
+      } else {
+        // Word deleted - move to next word
+        setIsDeleting(false)
+        setWordIndex((prev) => (prev + 1) % bio.typingWords.length)
+      }
     }
 
-    timeout = setTimeout(erase, 2400)
     return () => clearTimeout(timeout)
-  }, [])
+  }, [displayText, wordIndex, isDeleting])
 
-  const visibleWord = displayWord.slice(0, charCount)
+  const visibleWord = displayText
 
   return (
     <section
@@ -70,10 +80,7 @@ export default function Hero() {
           inset: 0,
           zIndex: 0,
           pointerEvents: 'none',
-          background: [
-            'radial-gradient(ellipse 60% 50% at 20% 50%, rgba(168,85,247,0.06) 0%, transparent 70%)',
-            'radial-gradient(ellipse 40% 60% at 80% 20%, rgba(168,85,247,0.03) 0%, transparent 60%)',
-          ].join(', '),
+          background: 'radial-gradient(ellipse 55% 65% at 78% 38%, rgba(168,85,247,0.14) 0%, rgba(168,85,247,0.04) 45%, transparent 70%)',
         }}
       />
 
@@ -178,20 +185,23 @@ export default function Hero() {
               display: 'inline-block',
               fontFamily: 'var(--font-inter), system-ui, sans-serif',
               fontSize: '15px',
-              fontWeight: 600,
-              padding: '14px 24px',
-              borderRadius: 'var(--radius-lg)',
-              backgroundColor: 'var(--text-accent)',
-              color: 'var(--bg)',
+              fontWeight: 500,
+              padding: '13px 28px',
+              borderRadius: 'var(--radius-pill)',
+              backgroundColor: 'rgba(255,255,255,0.08)',
+              color: 'var(--text-primary)',
+              border: '1px solid rgba(255,255,255,0.18)',
               textDecoration: 'none',
-              transition: 'box-shadow 0.25s ease, transform 0.15s ease',
+              transition: 'box-shadow 0.25s ease, border-color 0.2s ease, transform 0.15s ease',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = '0 12px 40px rgba(168,85,247,0.35)'
+              e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.13)'
+              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.28)'
               e.currentTarget.style.transform = 'translateY(-1px)'
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = 'none'
+              e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.08)'
+              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)'
               e.currentTarget.style.transform = 'translateY(0)'
             }}
           >
@@ -205,26 +215,28 @@ export default function Hero() {
               fontFamily: 'var(--font-inter), system-ui, sans-serif',
               fontSize: '15px',
               fontWeight: 500,
-              padding: '12px 20px',
-              borderRadius: 'var(--radius-lg)',
-              backgroundColor: 'transparent',
-              color: 'var(--text-primary)',
-              textDecoration: 'none',
+              padding: '13px 28px',
+              borderRadius: 'var(--radius-pill)',
+              backgroundColor: 'rgba(255,255,255,0.04)',
+              color: 'var(--text-muted)',
               border: '1px solid rgba(255,255,255,0.06)',
-              transition: 'box-shadow 0.25s ease, border-color 0.2s ease, transform 0.15s ease',
+              textDecoration: 'none',
+              transition: 'box-shadow 0.25s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = '0 8px 24px rgba(168,85,247,0.12)'
-              e.currentTarget.style.borderColor = 'rgba(168,85,247,0.30)'
+              e.currentTarget.style.boxShadow = '0 8px 24px rgba(168,85,247,0.14)'
+              e.currentTarget.style.borderColor = 'rgba(168,85,247,0.28)'
+              e.currentTarget.style.color = 'var(--text-primary)'
               e.currentTarget.style.transform = 'translateY(-1px)'
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.boxShadow = 'none'
               e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'
+              e.currentTarget.style.color = 'var(--text-muted)'
               e.currentTarget.style.transform = 'translateY(0)'
             }}
           >
-            Contact Me
+            {">_ Contact Me"}
           </a>
         </div>
       </div>

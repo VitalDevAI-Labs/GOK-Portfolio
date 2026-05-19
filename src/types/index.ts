@@ -12,6 +12,8 @@ export interface Project {
 export interface SkillGroup {
   category: string
   items: string[]
+  icon: string
+  layout?: 'standard' | 'fullwidth'
 }
 
 export interface Bio {
@@ -26,4 +28,17 @@ export interface Bio {
   github?: string
   linkedin?: string
   resumeUrl: string
+  yearsExp: number
+  aiModels: number
+  projectsShipped: number
+  aboutParagraphs: string[]
+}
+
+export interface Experience {
+  id: string
+  role: string
+  company: string
+  period: string
+  description: string
+  current?: boolean
 }

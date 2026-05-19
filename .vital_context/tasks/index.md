@@ -4,7 +4,16 @@ All completed and active task logs, newest first.
 
 | ID | Title | Status | Date |
 |----|-------|--------|------|
-| task-20260517-008 | V2 About section redesign | active | 2026-05-17 |
+| task-20260517-017 | Phase 5 — Project filtering on /featured-works | done | 2026-05-17 |
+| task-20260517-016 | Phase 4 — Navigation update (next/link) | done | 2026-05-17 |
+| task-20260517-015 | Phase 3 — New page templates creation | done | 2026-05-17 |
+| task-20260517-014 | Phase 2 — Preview components extraction | done | 2026-05-17 |
+| task-20260517-013 | Phase 1 — Multi-page route groups setup | done | 2026-05-17 |
+| task-20260517-012 | Hero typewriter animation fix | done | 2026-05-17 |
+| task-20260517-011 | Phase 4 — Vercel deploy + real content | active | 2026-05-17 |
+| task-20260517-010 | V2 Contact + Footer redesign | done | 2026-05-17 |
+| task-20260517-009 | V2 Skills section redesign | done | 2026-05-17 |
+| task-20260517-008 | V2 About section redesign | done | 2026-05-17 |
 | task-20260517-007 | V2 Projects section redesign | done | 2026-05-17 |
 | task-20260517-006 | V2 Hero section redesign | done | 2026-05-17 |
 | task-20260517-005 | V2 Foundation — globals, EdgeFrame, Nav | done | 2026-05-17 |

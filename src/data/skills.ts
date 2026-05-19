@@ -2,23 +2,24 @@ import type { SkillGroup } from '@/types'
 
 export const skills: SkillGroup[] = [
   {
-    category: 'Languages',
-    items: ['TypeScript', 'JavaScript', 'Python', 'SQL'],
+    category: 'Frontend Engineering',
+    icon: '⬡',
+    items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Redux', 'Framer Motion'],
   },
   {
-    category: 'Frontend',
-    items: ['React', 'Next.js', 'Tailwind CSS', 'HTML', 'CSS'],
+    category: 'Backend & Systems',
+    icon: '⚙',
+    items: ['Node.js', 'Python', 'Go', 'PostgreSQL', 'MongoDB', 'Redis', 'GraphQL'],
   },
   {
-    category: 'Backend',
-    items: ['Node.js', 'Express', 'REST APIs', 'GraphQL'],
+    category: 'AI & Machine Learning',
+    icon: '◈',
+    items: ['PyTorch', 'TensorFlow', 'LangChain', 'OpenAI API', 'HuggingFace', 'Computer Vision'],
   },
   {
-    category: 'Databases',
-    items: ['PostgreSQL', 'Redis', 'SQLite', 'Prisma'],
-  },
-  {
-    category: 'Tools & Infra',
-    items: ['Git', 'Docker', 'Vercel', 'Linux', 'VS Code'],
+    category: 'Cloud & DevOps',
+    icon: '☁',
+    items: ['AWS', 'Docker', 'Kubernetes', 'CI/CD', 'Terraform', 'Vercel'],
+    layout: 'fullwidth',
   },
 ]

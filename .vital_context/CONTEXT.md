@@ -14,10 +14,10 @@
 
 ## Current Stage
 
-- **Stage:** Phase 4 — Launch (merge V-2-New-UX → main, Vercel deploy)
-- **Objective:** V2 redesign complete. Merge branch, replace placeholder content with real data, deploy to Vercel.
-- **Status:** V2 all sections done — ready to merge and deploy.
-- **Exit Criteria:** Live on Vercel with real content, custom domain optional.
+- **Stage:** V3 Design Redesign
+- **Objective:** Redesign Hero, About, Skills (Technical Arsenal), Career Journey Timeline, and Contact sections to match finalized UX screenshots.
+- **Status:** Contact section rebuilt (compact glowing card). Career Journey Timeline + V3 Hero/About/Skills pending.
+- **Exit Criteria:** All V3 sections match design spec, build passes, deployed to Vercel.
 
 ## Phases
 
@@ -27,13 +27,17 @@
 | 1 | Foundation UX | Dark layout, fonts, nav, Hero section | done |
 | 2 | Core Content | Projects grid, About, Skills sections | done |
 | 3 | Polish & Conversion | Contact, Resume download, animations, SEO/OG | done |
-| 4 | Launch | Vercel deploy, custom domain | pending |
+| 4 | Launch | Vercel deploy, custom domain | active |
 | V2-1 | V2 Foundation | Global tokens, EdgeFrame, Nav redesign | done |
 | V2-2 | V2 Hero | Hero section redesign | done |
 | V2-3 | V2 Projects | Projects section redesign | done |
 | V2-4 | V2 About | About section redesign | done |
 | V2-5 | V2 Skills | Skills section redesign | done |
 | V2-6 | V2 Contact + Footer | Contact + Footer redesign | done |
+| V3-1 | V3 Contact | Compact glowing purple card rebuild | done |
+| V3-2 | V3 Career Journey | Alternating timeline section | planned |
+| V3-3 | V3 Hero / About / Skills | V3 visual redesign per design spec | planned |
+| Phase-5 | Multi-Page Architecture | Route groups, preview components, filtering | done |
 
 ## Active Tasks
 
@@ -49,7 +53,16 @@
 | `task-20260517-008` | V2 About section redesign | V2-UX-004 | done | dev |
 | `task-20260517-009` | V2 Skills section redesign | V2-UX-005 | done | dev |
 | `task-20260517-010` | V2 Contact + Footer redesign | V2-UX-006 | done | dev |
-| `task-20260517-011` | Phase 4 — merge V2 branch + Vercel deploy | Phase-4 | planned | dev |
+| `task-20260517-017` | Phase 5 — Project filtering | Phase-5 | done | dev |
+| `task-20260517-016` | Phase 4 — Navigation update (next/link) | Phase-5 | done | dev |
+| `task-20260517-015` | Phase 3 — New page templates (routes) | Phase-5 | done | dev |
+| `task-20260517-014` | Phase 2 — Preview components extraction | Phase-5 | done | dev |
+| `task-20260517-013` | Phase 1 — Route groups + shared layout | Phase-5 | done | dev |
+| `task-20260517-012` | Hero typewriter fix — state-machine animation | Phase-4 | done | dev |
+| `task-20260517-011` | Phase 4 — Vercel deploy + real content | Phase-4 | blocked | dev |
+| `task-20260519-018` | V3 Contact — compact glowing card rebuild | V3-1 | done | dev |
+| `task-20260519-019` | V3 Career Journey Timeline | V3-2 | planned | dev |
+| `task-20260519-020` | V3 Hero / About / Skills redesign | V3-3 | planned | dev |
 
 ## Key Decisions
 
@@ -65,6 +78,10 @@
 | 8 | V2 heading font | Merriweather serif (alongside Inter body, JetBrains Mono) | Design spec — serif headings |
 | 9 | V2 styling approach | CSS variables for tokens + hybrid Tailwind for new components | Evolution not rewrite — existing inline styles auto-inherit token changes |
 | 10 | V2 section approach | Plan → build → verify one section at a time | Prevents design drift across sections |
+| 11 | Multi-page routing | Route groups `(shared)` with shared layout | Keeps homepage clean, dedicated pages for /featured-works, /professional-journey |
+| 12 | Homepage previews | ProjectsPreview + ExperiencePreview components | Tease deeper content without bloating homepage |
+| 13 | Project filtering | URL search params (?category=x) via useSearchParams | Shareable links, browser history support |
+| 14 | Contact section size | Max-width 700px, fixed padding 48px 32px | Section felt too large at 1100px full-bleed; compact card reads better |
 
 Full decision log with alternatives in [architecture.md](architecture.md).
 

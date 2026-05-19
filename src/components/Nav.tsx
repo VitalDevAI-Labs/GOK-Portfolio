@@ -1,12 +1,14 @@
 'use client'
 
+import Link from 'next/link'
 import { bio } from '@/data/bio'
 
 const links = [
-  { label: 'Projects', href: '#projects' },
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Projects', href: '/featured-works' },
+  { label: 'About', href: '/#about' },
+  { label: 'Skills', href: '/#skills' },
+  { label: 'Experience', href: '/professional-journey' },
+  { label: 'Contact', href: '/#contact' },
 ]
 
 export default function Nav() {
@@ -35,8 +37,8 @@ export default function Nav() {
           justifyContent: 'space-between',
         }}
       >
-        <a
-          href="#"
+        <Link
+          href="/"
           style={{
             fontFamily: 'var(--font-mono), monospace',
             fontSize: '20px',
@@ -47,7 +49,7 @@ export default function Nav() {
           }}
         >
           {bio.name}
-        </a>
+        </Link>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <ul
@@ -61,7 +63,7 @@ export default function Nav() {
           >
             {links.map((link) => (
               <li key={link.href}>
-                <a
+                <Link
                   href={link.href}
                   style={{
                     fontFamily: 'var(--font-mono), monospace',
@@ -79,13 +81,13 @@ export default function Nav() {
                   }
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
 
-          <a
-            href="#contact"
+          <Link
+            href="/#contact"
             style={{
               fontFamily: 'var(--font-mono), monospace',
               fontSize: '13px',
@@ -109,7 +111,7 @@ export default function Nav() {
             }}
           >
             Let&apos;s Connect
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
