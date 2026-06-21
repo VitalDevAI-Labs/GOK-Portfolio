@@ -2,24 +2,59 @@ import type { SkillGroup } from '@/types'
 
 export const skills: SkillGroup[] = [
   {
-    category: 'Frontend Engineering',
-    icon: '⬡',
-    items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Redux', 'Framer Motion'],
-  },
-  {
-    category: 'Backend & Systems',
-    icon: '⚙',
-    items: ['Node.js', 'Python', 'Go', 'PostgreSQL', 'MongoDB', 'Redis', 'GraphQL'],
-  },
-  {
-    category: 'AI & Machine Learning',
+    category: 'AI & Agentic Systems',
     icon: '◈',
-    items: ['PyTorch', 'TensorFlow', 'LangChain', 'OpenAI API', 'HuggingFace', 'Computer Vision'],
+    items: [
+      'Custom Agent Orchestration',
+      'RAG Pipelines',
+      'LLM Integration',
+      'Prompt Engineering',
+      'LangChain',
+      'Langflow',
+      'OpenAI API',
+      'Claude API',
+      'OpenRouter',
+      'Hugging Face',
+      'Fine-tuning (LoRA)',
+      'n8n',
+    ],
   },
   {
-    category: 'Cloud & DevOps',
+    category: 'Full-Stack Engineering',
+    icon: '⬡',
+    items: [
+      'React',
+      'Next.js',
+      'TypeScript',
+      'JavaScript',
+      'Python',
+      'FastAPI',
+      'Node.js',
+    ],
+  },
+  {
+    category: 'Data & Backend',
+    icon: '⚙',
+    items: [
+      'MongoDB',
+      'PostgreSQL',
+      'REST APIs',
+      'GraphQL',
+      'Playwright',
+      'Razorpay',
+      'PayPal'
+    ],
+  },
+  {
+    category: 'Cloud, DevOps & AI Tools',
     icon: '☁',
-    items: ['AWS', 'Docker', 'Kubernetes', 'CI/CD', 'Terraform', 'Vercel'],
+    items: [
+      'AWS (S3, Lambda, EC2)',
+      'GCP',
+      'VPS',
+      'Docker',
+      'CI/CD'
+    ],
     layout: 'fullwidth',
   },
 ]
